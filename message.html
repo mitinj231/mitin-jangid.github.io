@@ -339,6 +339,52 @@
                 display: none;
             }
         }
+        #tapToSeeBtn {
+    background-color: #ff69b4; /* Pink color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#tapToSeeBtn:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+    transform: scale(1.05);
+}
+
+/* Image fade-in effect */
+#sleepImage {
+    display: none;
+    width: 100%; /* Adjust the size as needed */
+    max-width: 500px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+.go{
+    display: flex;
+    justify-content: center;
+    
+}
+#sleepImage{
+    border-radius: 10%;
+    /* margin-top: -50px; */
+    margin-top: -70px;
+
+}
+
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
     <!-- matter-wrap plugin -->
@@ -448,7 +494,7 @@
         <br>
 
         <li class = "data">
-            For always listening me with such a passions.
+            For always listening me with patience.
         </li>
        <br>
 
@@ -491,6 +537,14 @@
        </p> 
     </div>
     <canvas id="bg"></canvas>
+ <div class="tatabye" style="display: flex; justify-content: center; margin-bottom: 90px;">
+    <button id="tapToSeeBtn">Tap to see</button>
+   
+ </div>
+ <div class = "go">
+    <img id="sleepImage" src="img\STK-20240601-WA0001.webp" alt="Gotosleep" style="display: none;">
+ </div>
+
     
 </body>
 <script>
@@ -690,7 +744,11 @@ document.addEventListener("DOMContentLoaded", type)
 
     // Start confetti on page load
     window.onload = createConfetti();
-
+    document.getElementById("tapToSeeBtn").addEventListener("click", function() {
+    const img = document.getElementById("sleepImage");
+    img.style.display = "block";
+    img.style.animation = "fadeIn 1s forwards"; // Apply fade-in animation
+});
 </script>
 <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
 <script src="js/jquery.js"></script>
